@@ -25,13 +25,15 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Cdn icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body>
-    
+
     <!-- Header part start-->
     @include('frontend.partials.navbar')
     <!-- Header part end-->
@@ -59,7 +61,8 @@
                                     <img src="img/banner_img.png" alt="">
                                 </div>
                             </div>
-                        </div><div class="single_banner_slider">
+                        </div>
+                        <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
@@ -76,7 +79,8 @@
                                     <img src="img/banner_img.png" alt="">
                                 </div>
                             </div>
-                        </div><div class="single_banner_slider">
+                        </div>
+                        <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
                                     <div class="banner_text">
@@ -110,7 +114,7 @@
                                     <img src="img/banner_img.png" alt="">
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <div class="slider-counter"></div>
                 </div>
@@ -218,7 +222,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +233,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +244,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +255,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -258,7 +266,7 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a  class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +280,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -282,7 +291,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +302,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +313,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -312,7 +324,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -322,7 +335,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -332,7 +346,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -342,7 +357,8 @@
                                         <div class="single_product_text">
                                             <h4>Quartz Belt Watch</h4>
                                             <h3>$150.00</h3>
-                                            <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                            <a href="#" class="add_cart">+ add to cart<i
+                                                    class="ti-heart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -376,13 +392,18 @@
                                 <div id="seconds" class="date"></div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
+                        <form action="{{ route('newsletter.store') }}" method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="enter email address"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2" name="email">
+                                <div class="input-group-append">
+                                    <button type="submit" class="input-group-text btn_2" id="basic-addon2">
+                                        book now
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -454,13 +475,18 @@
                         <h5>Join Our Newsletter</h5>
                         <h2>Subscribe to get Updated
                             with new offers</h2>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">subscribe now</a>
-                            </div>
-                        </div>
+                            <form action="{{ route('newsletter.store') }}" method="POST">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="enter email address"
+                                        aria-label="Recipient's username" aria-describedby="basic-addon2" name="email">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="input-group-text btn_2" id="basic-addon2">
+                                            subscribe now
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                     </div>
                 </div>
             </div>

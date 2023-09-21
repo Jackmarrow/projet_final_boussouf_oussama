@@ -6,6 +6,8 @@
     <title>NewsLetter</title>
 </head>
 <body>
-    
+    <h1>
+        {{$mailData['body']}}
+    </h1>
 </body>
 </html>
