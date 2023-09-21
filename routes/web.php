@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SignInController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 // Home Route
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -42,6 +43,8 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 // Product Route
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
+// Registeration Route
+Route::get('/sign_up', [RegisterController::class, 'index'])->name('register.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
