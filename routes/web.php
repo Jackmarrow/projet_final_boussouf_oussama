@@ -42,13 +42,14 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 // Product Route
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/{product}', [ProductController::class, 'index'])->name('product.index');
 
 // Registeration Route
 Route::get('/sign_up', [RegisterController::class, 'index'])->name('register.index');
 
 // Newsletter Mail Route
 Route::post('/newslettermail', [NewsletterController::class, 'store'])->name('newsletter.store');
+
 
 
 

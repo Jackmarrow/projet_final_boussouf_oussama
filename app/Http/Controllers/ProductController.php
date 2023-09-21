@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
-        return view('frontend.pages.single-product');
+    public function index(Product $product){
+        return view('frontend.pages.single-product', compact('product'));
     }
 }
