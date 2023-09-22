@@ -28,7 +28,9 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- Cdn icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -53,7 +55,24 @@
         </div>
     </section>
     <!-- breadcrumb start-->
-
+    {{-- <div class="row">
+        <div class="col-3">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">home</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">done</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">doing</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+          </div>
+        </div>
+      </div> --}}
     <!--================Category Product Area =================-->
     <section class="cat_product_area section_padding">
         <div class="container">
@@ -65,18 +84,24 @@
                                 <h3>Browse Categories</h3>
                             </div>
                             <div class="widgets_inner">
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Chair</a>
+                                <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                                    <li class="mb-3">
+                                        <a class="nav-link p-0 active" id="v-pills-home-tab" data-toggle="pill"
+                                            href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                            aria-selected="true">Chair</a>
                                         <span>(50)</span>
                                     </li>
-                                    <li>
-                                        <a href="#">Table</a>
+                                    <li class="mb-3">
+                                        <a class="nav-link p-0" id="v-pills-profile-tab" data-toggle="pill"
+                                            href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                            aria-selected="false">Sofa</a>
                                         <span>(10)</span>
                                     </li>
                                     <li>
-                                        <a href="#">Sofa</a>
-                                        <span>(10)</span>
+                                        <a class="nav-link p-0" id="v-pills-messages-tab" data-toggle="pill"
+                                            href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                            aria-selected="false">Table</a>
+                                        <span>(0)</span>
                                     </li>
                                 </ul>
                             </div>
@@ -88,7 +113,7 @@
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu">
-                                    <p><span>10000 </span> Prodict Found</p>
+                                    <p><span>{{count($products)}} </span> Products Found</p>
                                 </div>
                                 <div class="single_product_menu d-flex">
                                     <h5>short by : </h5>
@@ -103,97 +128,102 @@
                     </div>
 
                     <div class="row align-items-center latest_product_inner">
+                        {{-- @foreach ($products as $product)
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_1.png" alt="">
+                                <a href="{{route('product.index', $product->id)}}">
+                                    <img width="250" height="200" src='{{asset('storage/images/product/'.$product->image)}}' alt="">
+                                </a>
                                 <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
+                                    <h4 class>{{$product->name}}</h4>
+                                    <h3>${{$product->price}}</h3>
                                     <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_2.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                        @endforeach --}}
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                aria-labelledby="v-pills-home-tab">
+                                <div class="row">
+                                    @foreach ($products as $product)
+                                        @if ($product->category_id == 1)
+                                            <div class="col-4">
+                                                <div class="single_product_item">
+                                                    <a href="{{ route('product.index', $product->id) }}">
+                                                        <img src='{{ asset('storage/images/product/' . $product->image) }}'
+                                                            alt="">
+                                                    </a>
+                                                    <div class="single_product_text">
+                                                        <h4 class>{{ $product->name }}</h4>
+                                                        <h3>${{ $product->price }}</h3>
+                                                        <a href="#" class="add_cart">+ add to cart<i
+                                                                class="ti-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    {{-- {{$products->links()}} --}}
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_3.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+                                <div class="row">
+                                    @foreach ($products as $product)
+                                            @if ($product->category_id == 2)
+                                                <div class="col-4">
+                                                    <div class="single_product_item">
+                                                        <a href="{{ route('product.index', $product->id) }}">
+                                                            <img style="object-fit: contain; width: 100%;" height="200" src='{{ asset('storage/images/product/' . $product->image) }}'
+                                                                alt="">
+                                                        </a>
+                                                        <div class="single_product_text">
+                                                            <h4 class>{{ $product->name }}</h4>
+                                                            <h3>${{ $product->price }}</h3>
+                                                            <a href="#" class="add_cart">+ add to cart<i
+                                                                    class="ti-heart"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    {{-- {{$products->links()}} --}}
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_4.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <div class="row">
+                                    @foreach ($products as $product)
+                                            @if ($product->category_id == 3)
+                                                <div class="col-4">
+                                                    <div class="single_product_item">
+                                                        <a href="{{ route('product.index', $product->id) }}">
+                                                            <img src='{{ asset('storage/images/product/' . $product->image) }}'
+                                                                alt="">
+                                                        </a>
+                                                        <div class="single_product_text">
+                                                            <h4 class>{{ $product->name }}</h4>
+                                                            <h3>${{ $product->price }}</h3>
+                                                            <a href="#" class="add_cart">+ add to cart<i
+                                                                    class="ti-heart"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    {{-- {{$products->links()}} --}}
                                 </div>
                             </div>
+
                         </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_5.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_6.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_7.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_8.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single_product_item">
-                                <img src="img/product/product_2.png" alt="">
-                                <div class="single_product_text">
-                                    <h4>Quartz Belt Watch</h4>
-                                    <h3>$150.00</h3>
-                                    <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
+
+                        {{-- <div class="col-lg-12">
                             <div class="pageination">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center">
@@ -216,7 +246,7 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -237,41 +267,17 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
+                        @foreach ($itemsLess as $itemLess)
                         <div class="single_product_item">
-                            <img src="img/product/product_1.png" alt="">
+                            <a href="{{ route('product.index', $itemLess->id) }}">
+                                <img height="200" src="{{asset('storage/images/product/'.$itemLess->image)}}" alt="">
+                            </a>
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                                <h4>{{ $itemLess->name }}</h4>
+                                <h3>${{ $itemLess->price }}</h3>
                             </div>
                         </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -280,9 +286,10 @@
     <!-- product_list part end-->
 
     <!--::footer_part start::-->
-        @include('frontend.partials.footer')
+    @include('frontend.partials.footer')
     <!--::footer_part end::-->
 
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <!-- jquery plugins here-->
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->

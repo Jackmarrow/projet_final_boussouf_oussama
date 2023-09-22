@@ -19,12 +19,12 @@ class ProductSeeder extends Seeder
         $faker = Faker::create();
 
         // Check if $imageNames has at least one element before trying to access it
-        for ($i=1; $i <12 ; $i++) { 
+        for ($i=1; $i <25 ; $i++) { 
             # code...
-            if ($i <= 8) {
+            if ($i <= 9) {
                 Product::create([
-                    'image' => 'chair_'.$i.'.png',
-                    'name' => $faker->name,
+                    'image' => 'chair_'.$i.'.jpg',
+                    'name' => $faker->word,
                     'price' => $faker->numberBetween(50, 150),
                     'stock' => $faker->numberBetween(1, 20),
                     'desc' => $faker->sentence(6),
@@ -32,15 +32,26 @@ class ProductSeeder extends Seeder
                     'category_id' => 1,
                 ]);
             } 
-            else if($i > 8){
+            else if($i > 8 && $i < 20){
                 Product::create([
                     'image' => 'sofa_'.$i.'.jpg',
-                    'name' => $faker->name,
+                    'name' => $faker->word,
                     'price' => $faker->numberBetween(50, 150),
                     'stock' => $faker->numberBetween(1, 20),
                     'desc' => $faker->sentence(6),
                     'user_id' => 1,
-                    'category_id' => 1,
+                    'category_id' => 2,
+                ]);
+            }
+            else{
+                Product::create([
+                    'image' => 'table_'.$i.'.jpg',
+                    'name' => $faker->word,
+                    'price' => $faker->numberBetween(50, 150),
+                    'stock' => $faker->numberBetween(1, 20),
+                    'desc' => $faker->sentence(6),
+                    'user_id' => 1,
+                    'category_id' => 3,
                 ]);
             }
         }

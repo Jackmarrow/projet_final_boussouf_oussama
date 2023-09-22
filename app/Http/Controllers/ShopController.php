@@ -9,6 +9,7 @@ class ShopController extends Controller
 {
     public function index(){
         $products = Product::all();
-        return view('frontend.pages.category', compact('products'));
+        $itemsLess = Product::where('stock','<=', 5)->get();
+        return view('frontend.pages.category', compact('products', 'itemsLess'));
     }
 }

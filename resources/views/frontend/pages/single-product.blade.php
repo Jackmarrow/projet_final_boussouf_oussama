@@ -60,7 +60,7 @@
                     <div class="product_slider_img">
                         <div id="vertical">
                             <div data-thumb="img/product/single-product/product_1.png">
-                                <img src="img/product/single-product/product_1.png" />
+                                <img src="{{asset('storage/images/product/'.$product->image)}}" />
                             </div>
                             {{-- <div data-thumb="img/product/single-product/product_1.png">
                 <img src="img/product/single-product/product_1.png" />
@@ -81,7 +81,7 @@
                         <ul class="list">
                             <li>
                                 <a class="active" href="#">
-                                    <span>Category</span> : Household</a>
+                                    <span>Category</span> : {{$product->category->name}}</a>
                             </li>
                             <li>
                                 <a href="#"> <span>Availibility</span> : In Stock</a>

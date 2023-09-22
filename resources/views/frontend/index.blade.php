@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                     <div class="banner_img d-none d-lg-block">
-                                        <img src="img/banner_img.png" alt="">
+                                        <img src="{{asset('storage/images/product/'.$randomItem->image)}}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -137,12 +137,17 @@
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
                                             <a href="{{ route('product.index', $item->id) }}">
-                                                <img src="img/product/product_1.png" alt="">
+                                                <img src='{{asset('storage/images/product/'.$item->image)}}' alt="">
                                             </a>
                                             <div class="single_product_text">
                                                 <h4>{{ $item->name }}</h4>
                                                 <h3>${{ $item->price }}</h3>
-                                                <a class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                                <form action="{{route('addToCart.store', $item->id)}}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="bg-transparent border-0">
+                                                            + add to cart
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +216,9 @@
                     <div class="best_product_slider owl-carousel">
                         @foreach ($products as $product)
                             <div class="single_product_item">
-                                <img src="img/product/product_2.png" alt="">
+                                <a href="{{ route('product.index', $product->id) }}">
+                                    <img height="200" src="{{asset('storage/images/product/'.$product->image)}}" alt="">
+                                </a>
                                 <div class="single_product_text">
                                     <h4>{{ $product->name }}</h4>
                                     <h3>${{ $product->price }}</h3>

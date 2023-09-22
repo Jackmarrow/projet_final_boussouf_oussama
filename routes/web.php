@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AddToCartController;
+use App\Http\Controllers\Admin\AdminInfoController;
+use App\Http\Controllers\Admin\AllProductController;
+use App\Http\Controllers\Admin\AllUserController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MailBoxController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -50,6 +56,18 @@ Route::get('/sign_up', [RegisterController::class, 'index'])->name('register.ind
 // Newsletter Mail Route
 Route::post('/newslettermail', [NewsletterController::class, 'store'])->name('newsletter.store');
 
+// Add to cart Route
+Route::post('/product/add_to_cart/{product}', [AddToCartController::class, 'store'])->name('addToCart.store');
+
+
+// Admin Routes 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adminDashboard.index');
+    Route::get('/admin/all_users', [AllUserController::class, 'index'])->name('allUsers.index');
+    Route::get('/admin/products', [AllProductController::class, 'index'])->name('allProduct.index');
+    Route::get('/admin/mail_box', [MailBoxController::class, 'index'])->name('mailBox.index');
+    Route::get('/admin/admin_info', [AdminInfoController::class, 'index'])->name('adminInfo.index');
+});
 
 
 

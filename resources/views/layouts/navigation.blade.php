@@ -5,9 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
+                    <a class="navbar-brand" href="{{ route('home.index') }}"> <img src="{{asset('img/logo.png')}}" alt="logo"> </a>
                 </div>
 
                 <!-- Navigation Links -->
@@ -15,6 +13,20 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @role('admin')
+                    <x-nav-link :href="route('allUsers.index')" :active="request()->routeIs('allUsers.index')">
+                        {{ __('All Users') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('allProduct.index')" :active="request()->routeIs('allProduct.index')">
+                        {{ __('All Products') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('mailBox.index')" :active="request()->routeIs('mailBox.index')">
+                        {{ __('Mail Box') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('adminInfo.index')" :active="request()->routeIs('adminInfo.index')">
+                        {{ __('Admin Info') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
