@@ -157,8 +157,12 @@
                                                     <div class="single_product_text">
                                                         <h4 class>{{ $product->name }}</h4>
                                                         <h3>${{ $product->price }}</h3>
-                                                        <a href="#" class="add_cart">+ add to cart<i
-                                                                class="ti-heart"></i></a>
+                                                        <form action="{{route('addToCart.store', $product->id)}}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="bg-transparent border-0">
+                                                                    + add to cart
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -183,8 +187,12 @@
                                                         <div class="single_product_text">
                                                             <h4 class>{{ $product->name }}</h4>
                                                             <h3>${{ $product->price }}</h3>
-                                                            <a href="#" class="add_cart">+ add to cart<i
-                                                                    class="ti-heart"></i></a>
+                                                            <form action="{{route('addToCart.store', $product->id)}}" method="POST">
+                                                                @csrf
+                                                                <button type="submit" class="bg-transparent border-0">
+                                                                        + add to cart
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,8 +216,12 @@
                                                         <div class="single_product_text">
                                                             <h4 class>{{ $product->name }}</h4>
                                                             <h3>${{ $product->price }}</h3>
-                                                            <a href="#" class="add_cart">+ add to cart<i
-                                                                    class="ti-heart"></i></a>
+                                                            <form action="{{route('addToCart.store', $product->id)}}" method="POST">
+                                                                @csrf
+                                                                <button type="submit" class="bg-transparent border-0">
+                                                                        + add to cart
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>

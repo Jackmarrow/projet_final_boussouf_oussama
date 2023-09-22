@@ -24,6 +24,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contact.index') }}">Contact</a>
                             </li>
+                            @role(['admin','webmaster'])
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('adminDashboard.index') }}">Back Office</a>
+                            </li>
+                            @endrole
                         </ul>
                     </div>
                     <div class="hearer_icon d-flex">

@@ -96,7 +96,12 @@
                                 <input class="input-number" type="text" value="1" min="0" max="10">
                                 <span class="number-increment"> <i class="ti-plus"></i></span>
                             </div>
-                            <a href="#" class="btn_3">add to cart</a>
+                            <form action="{{route('addToCart.store', $product->id)}}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-transparent border-0">
+                                        + add to cart
+                                </button>
+                            </form>
                             <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
                         </div>
                     </div>

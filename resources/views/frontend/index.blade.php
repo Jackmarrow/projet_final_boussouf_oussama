@@ -52,7 +52,7 @@
                                             <div class="banner_text_iner">
                                                 <h1>{{ $randomItem->name }}</h1>
                                                 <p>{{ $randomItem->desc }}</p>
-                                                <a href="#" class="btn_2">buy now</a>
+                                                <a  href="{{ route('product.index', $randomItem->id) }}" class="btn_2">buy now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -81,38 +81,16 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
-                <div class="col-lg-7 col-sm-6">
+                @foreach ($lastFourProducts as $lastFourProduct)
+                <div class="col-lg-6 col-sm-6">
                     <div class="single_feature_post_text">
-                        <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
-                        <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/feature_1.png" alt="">
+                        <p>{{$lastFourProduct->name}}</p>
+                        <h3>{{$lastFourProduct->desc}}</h3>
+                        <a href="{{ route('product.index', $lastFourProduct->id) }}" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
+                        <img width="250" src="{{asset('storage/images/product/'.$lastFourProduct->image)}}" alt="">
                     </div>
                 </div>
-                <div class="col-lg-5 col-sm-6">
-                    <div class="single_feature_post_text">
-                        <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
-                        <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/feature_2.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-5 col-sm-6">
-                    <div class="single_feature_post_text">
-                        <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
-                        <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/feature_3.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-7 col-sm-6">
-                    <div class="single_feature_post_text">
-                        <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
-                        <a href="#" class="feature_btn">EXPLORE NOW <i class="fas fa-play"></i></a>
-                        <img src="img/feature/feature_4.png" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

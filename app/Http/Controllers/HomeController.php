@@ -11,7 +11,8 @@ class HomeController extends Controller
         $randomItems = Product::inRandomOrder()->take(4)->get();
         $items = Product::take(8)->get();
         $products = Product::where('stock','<=', 5)->get();
-        return view('frontend.index', compact('randomItems', 'items', 'products'));
+        $lastFourProducts = Product::latest()->take(4)->get(); 
+        return view('frontend.index', compact('randomItems', 'items', 'products', 'lastFourProducts'));
     }
 
 }
