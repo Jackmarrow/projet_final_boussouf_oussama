@@ -67,6 +67,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/products', [AllProductController::class, 'index'])->name('allProduct.index');
     Route::get('/admin/mail_box', [MailBoxController::class, 'index'])->name('mailBox.index');
     Route::get('/admin/admin_info', [AdminInfoController::class, 'index'])->name('adminInfo.index');
+    Route::put('/admin/products/{product}', [AllProductController::class, 'update'])->name('product.update');
+    Route::post('/admin/products/add_product', [AllProductController::class, 'store'])->name('product.store');
+    Route::delete('/admin/products/{product}/delete', [AllProductController::class, 'destroy'])->name('product.destroy');
+    Route::put('/admin/all_users/{user}/update', [AllUserController::class, 'changeRole'])->name('allUsers.changerole');
 });
 
 

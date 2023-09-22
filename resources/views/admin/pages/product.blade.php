@@ -7,7 +7,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <button class="btn btn-primary mb-4">Create a new product</button>
+            {{-- create button --}}
+            @include('admin.partials.create-product')
+            {{-----------------------------------------}}
                 <div class="text-gray-900">
                     <table class="table">
                         <thead class="table-dark">
@@ -48,18 +50,12 @@
                                     {{$product->stock}}
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="btn btn-primary bg-transparent border border-0">
-                                            <i class="fa-solid fa-pen-to-square fa-lg" style="color: #00ad03;"></i>
-                                        </button>
-                                    </form>
+                                    @include('admin.partials.update-product')
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{route('product.destroy',$product->id)}}" method="POST">
                                         @csrf
-                                        @method('Delete')
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-danger bg-transparent border border-0">
                                             <i class="fa-solid fa-trash fa-lg" style="color: #f71818;"></i>
                                         </button>

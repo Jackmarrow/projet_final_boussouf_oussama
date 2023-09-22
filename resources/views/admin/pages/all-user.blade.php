@@ -7,16 +7,46 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <p class="text-danger text-sass">this page all user</p>
-                    <button type="submit" class="btn btn-orange mt-8">Submit</button>
-                    <i class="fa-brands fa-facebook-messenger fa-2xl"></i>
-                    <i class="fa fa-star"></i>
-
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+            <table class="table">
+                <thead class="table-dark">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Change Role</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr valign="middle">
+                            <td>
+                                {{$user->name}}
+                            </td>
+                            <td>
+                                {{$user->email}}
+                            </td>
+                            <td>
+                                {{$user->roles[0]->name}}
+                            </td>
+                            <td>
+                               <form action="{{route('allUsers.changerole',  $user->id)}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-primary">change role</button>
+                               </form>
+                            </td>
+                            <td>
+                                <form action="" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bg-transparent border border-0">
+                                        <i class="fa-solid fa-trash fa-lg" style="color: #f71818;"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </x-app-layout>

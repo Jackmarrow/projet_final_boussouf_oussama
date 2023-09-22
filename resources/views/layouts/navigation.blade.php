@@ -27,6 +27,11 @@
                         {{ __('Admin Info') }}
                     </x-nav-link>
                     @endrole
+                    @role('webmaster')
+                    <x-nav-link :href="route('allProduct.index')" :active="request()->routeIs('allProduct.index')">
+                        {{ __('All Products') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
