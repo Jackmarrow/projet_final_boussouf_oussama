@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Storage;
 class AllProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
+        $products = [];
+        if(auth()->user()->hasRole('admin')){
+            $products = Product::all();
+        } 
+        else{
+            $products = Product::where('user_id', auth()->user()->id)->get();
+        }
+        
         $categories = Category::all();
         return view('admin.pages.product', compact('products','categories'));
     }
@@ -37,6 +44,7 @@ class AllProductController extends Controller
         if ($request->file('image') != null) {
             $imageName = $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('public/images/product/', $imageName);
+
             Product::create([
                 'image'=> $imageName,
                 'name'=> $request->name,
@@ -44,7 +52,7 @@ class AllProductController extends Controller
                 'price'=> $request->price,
                 'stock'=> $request->stock,
                 'category_id'=> $request->category,
-                'user_id'=> 1,
+                'user_id'=> auth()->user()->id,
             ]);
         } 
 

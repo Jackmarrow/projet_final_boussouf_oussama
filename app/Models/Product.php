@@ -26,4 +26,12 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function users(){
+        return $this->belongsToMany(User::class,'paniers');
+    }
+
+    public function paniers(){
+        return $this->hasMany(Panier::class);
+    }
 }

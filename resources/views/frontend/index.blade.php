@@ -38,6 +38,10 @@
     @include('frontend.partials.navbar')
     <!-- Header part end-->
 
+     <!-- Flash message-->
+     @include('frontend.pages.flash-message')
+     <!-- Flash message-->
+
     <!-- banner part start-->
     <section class="banner_part">
         <div class="container">

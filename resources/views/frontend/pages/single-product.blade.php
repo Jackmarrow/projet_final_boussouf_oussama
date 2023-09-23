@@ -84,7 +84,7 @@
                                     <span>Category</span> : {{$product->category->name}}</a>
                             </li>
                             <li>
-                                <a href="#"> <span>Availibility</span> : In Stock</a>
+                                <a href="#"> <span>Availibility</span> : {{$product->stock}} In Stock</a>
                             </li>
                         </ul>
                         <p>
@@ -93,7 +93,7 @@
                         <div class="card_area d-flex justify-content-between align-items-center">
                             <div class="product_count">
                                 <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                                <input class="input-number" type="text" value="1" min="0" max="10">
+                                <input class="input-number" type="text" value="1" min="1">
                                 <span class="number-increment"> <i class="ti-plus"></i></span>
                             </div>
                             <form action="{{route('addToCart.store', $product->id)}}" method="POST">
@@ -243,7 +243,7 @@
                                 <div class="review_item">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-1.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-1.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>
@@ -261,7 +261,7 @@
                                 <div class="review_item reply">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-2.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-2.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>
@@ -279,7 +279,7 @@
                                 <div class="review_item">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-3.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-3.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>
@@ -397,7 +397,7 @@
                                 <div class="review_item">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-1.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-1.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>
@@ -418,7 +418,7 @@
                                 <div class="review_item">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-2.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-2.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>
@@ -439,7 +439,7 @@
                                 <div class="review_item">
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="img/product/single-product/review-3.png" alt="" />
+                                            <img src="{{asset('img/product/single-product/review-3.png')}}" alt="" />
                                         </div>
                                         <div class="media-body">
                                             <h4>Blake Ruiz</h4>

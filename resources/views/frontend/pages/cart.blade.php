@@ -86,12 +86,16 @@
                 <td>
                   <div class="product_count">
                     {{-- <span class="input-number-decrement"> <i class="ti-angle-down"></i></span> --}}
-                    <input class="input-number" type="text" value="1" disabled>
+                    @foreach ($panier->paniers as $product)
+                    <input class="input-number" type="text" value="{{$product->quantity}}" disabled>
+                    @endforeach
                     {{-- <span class="input-number-increment"> <i class="ti-angle-up"></i></span> --}}
                   </div>
                 </td>
                 <td>
-                  <h5>${{$panier->total}}</h5>
+                  @foreach ($panier->paniers as $product)
+                    <h5>${{$product->product->price * $product->quantity}}</h5>
+                  @endforeach
                 </td>
               </tr>
               @endforeach

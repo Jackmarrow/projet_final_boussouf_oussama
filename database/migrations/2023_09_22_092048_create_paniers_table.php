@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('paniers', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('name');
-            $table->integer('price');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
-            $table->integer('total');
             $table->timestamps();
         });
     }
