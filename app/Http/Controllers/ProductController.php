@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(Product $product){
-        return view('frontend.pages.single-product', compact('product'));
+        $itemsLess = Product::where('stock','<=', 5)->get();
+        return view('frontend.pages.single-product', compact('product','itemsLess'));
     }
 }

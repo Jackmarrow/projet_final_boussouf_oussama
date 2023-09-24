@@ -107,7 +107,7 @@
                                         + add to cart
                                 </button>
                             </div>
-                            </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -548,41 +548,17 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
+                        @foreach ($itemsLess as $itemLess)
                         <div class="single_product_item">
-                            <img src="img/product/product_1.png" alt="">
+                            <a href="{{ route('product.index', $itemLess->id) }}">
+                                <img height="200" src="{{asset('storage/images/product/'.$itemLess->image)}}" alt="">
+                            </a>
                             <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                                <h4>{{ $itemLess->name }}</h4>
+                                <h3>${{ $itemLess->price }}</h3>
                             </div>
                         </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>

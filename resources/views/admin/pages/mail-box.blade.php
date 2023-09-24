@@ -5,18 +5,37 @@
         </h2>
     </x-slot>
 
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <p class="text-danger text-sass">this page for mail box</p>
-                    <button type="submit" class="btn btn-orange mt-8">Submit</button>
-                    <i class="fa-brands fa-facebook-messenger fa-2xl"></i>
-                    <i class="fa fa-star"></i>
-
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Sent by</th>
+                        <th>Subject</th>
+                        <th>Email</th>
+                        <th>More info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($mails as $mail)
+                        <tr>
+                            <td>
+                                {{$mail->sent_by}}
+                            </td>
+                            <td>
+                                {{$mail->subject}}
+                            </td>
+                            <td>
+                                {{$mail->email}}
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary">Show</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+               </table>
         </div>
     </div>
 </x-app-layout>

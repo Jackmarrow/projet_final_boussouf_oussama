@@ -61,6 +61,12 @@ Route::post('/newslettermail', [NewsletterController::class, 'store'])->name('ne
 // Add to cart Route
 Route::post('/product/add_to_cart/{product}', [AddToCartController::class, 'store'])->name('addToCart.store');
 
+// Send Mail to Admin Route
+Route::post('/contact/send_mail', [ContactController::class, 'store'])->name('sendMail.store');
+
+// Increment and decrement Route
+Route::put('/cart/{panier}/increment', [CartController::class, 'increment'])->name('cart.increment');
+Route::put('/cart/{panier}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
 
 // Admin Routes 
 Route::middleware(['auth', 'role:admin'])->group(function(){
@@ -69,6 +75,7 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/products', [AllProductController::class, 'index'])->name('allProduct.index');
     Route::get('/admin/mail_box', [MailBoxController::class, 'index'])->name('mailBox.index');
     Route::get('/admin/admin_info', [AdminInfoController::class, 'index'])->name('adminInfo.index');
+    Route::put('/admin/admin_info/{info}/update', [AdminInfoController::class,'update'])->name('adminInfo.update');
     Route::put('/admin/products/{product}', [AllProductController::class, 'update'])->name('product.update');
     Route::post('/admin/products/add_product', [AllProductController::class, 'store'])->name('product.store');
     Route::delete('/admin/products/{product}/delete', [AllProductController::class, 'destroy'])->name('product.destroy');

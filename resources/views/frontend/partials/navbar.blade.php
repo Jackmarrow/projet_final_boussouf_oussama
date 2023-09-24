@@ -37,7 +37,6 @@
                         </ul>
                     </div>
                     <div class="hearer_icon d-flex">
-                        <a href=""><i class="ti-heart"></i></a>
                         <a href="{{ route('cart.index') }}"><i class="fas fa-cart-plus"></i></a>
                         @if (auth()->check())
                             <form method="POST" action="{{ route('logout') }}">

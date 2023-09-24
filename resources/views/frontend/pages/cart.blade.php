@@ -85,9 +85,21 @@
                 </td>
                 <td>
                   <div class="product_count">
-                    {{-- <span class="input-number-decrement"> <i class="ti-angle-down"></i></span> --}}
-                    <input class="input-number" type="text" value="{{$panier->quantity}}" disabled>
-                    {{-- <span class="input-number-increment"> <i class="ti-angle-up"></i></span> --}}
+                    <form action="{{route('cart.decrement',$panier)}}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <button type="submit" class="input-number-decrement border-0">
+                        <i class="ti-angle-down"></i>
+                      </button>
+                    </form>
+                    <input type="number" value="{{$panier->quantity}}" disabled>
+                    <form action="{{route('cart.increment',$panier)}}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <button type="submit" class="input-number-increment border-0">
+                        <i class="ti-angle-up"></i>
+                      </button>
+                    </form>
                   </div>
                 </td>
                 <td>
@@ -102,13 +114,13 @@
                   <h5>Subtotal</h5>
                 </td>
                 <td>
-                  <h5>$2160.00</h5>
+                  <h5>${{$total}}</h5>
                 </td>
               </tr>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="#">Continue Shopping</a>
+            <a class="btn_1" href="{{route('shop.index')}}">Continue Shopping</a>
             <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
           </div>
         </div>

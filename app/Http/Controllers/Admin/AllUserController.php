@@ -10,9 +10,16 @@ use Spatie\Permission\Models\Role;
 class AllUserController extends Controller
 {
     public function index(){
-        $users = User::all();
-        $roles = Role::whereNotIn("name", ['admin'])->get();
-        return view('admin.pages.all-user', compact('users', 'roles'));
+        $allUsers = User::all();
+        // All users who hasn't role admin
+        $users = [];
+        // Loop through all users and check if they are not admin
+        foreach ($allUsers as $user) {
+            if($user->hasRole(['webmaster','user'])){
+                $users[] = $user;
+            }
+        }
+        return view('admin.pages.all-user', compact('users'));
     }
 
     public function changeRole(User $user)

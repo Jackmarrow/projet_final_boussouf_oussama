@@ -24,7 +24,8 @@ class AddToCartController extends Controller
 
             // Check if out of stock
             if($product->stock == 0){
-                return back()->with('warning', 'This product is out of stock');
+                toastr()->info('This product is out of stock');
+                return back();
             }
 
             else{
@@ -54,13 +55,14 @@ class AddToCartController extends Controller
                 $request->quantity != null ? 
                 $product->decrement('stock', $request->quantity) :
                 $product->decrement('stock');
-    
-                return back()->with('success', 'Product has been added successfuly to the cart');
+                toastr()->success('Product has been added successfuly to the cart');
+                return back();
             } 
         }
         //IF NOT AUTHENTICATE 
         else{
-            return back()->with('warning', 'You should be loged in to add an item to cart');
+            toastr()->warning('You should be loged in to add an item to cart');
+            return back();
         }
 
     }
