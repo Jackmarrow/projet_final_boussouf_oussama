@@ -84,26 +84,30 @@
                                     <span>Category</span> : {{$product->category->name}}</a>
                             </li>
                             <li>
-                                <a href="#"> <span>Availibility</span> : {{$product->stock}} In Stock</a>
+                                <a href="#"> <span>Availibility</span> : 
+                                    {{$product->stock != 0 ? $product->stock .' '.'In Stock': 'Out Of Stock'}}
+                                </a>
                             </li>
+                            <!--================Flash Message Out of Stock =================-->
+                            @include('frontend.pages.flash-message')
+                            <!--============================================================-->
                         </ul>
                         <p>
                             {{$product->desc}}
                         </p>
-                        <div class="card_area d-flex justify-content-between align-items-center">
-                            <div class="product_count">
-                                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                                <input class="input-number" type="text" value="1" min="1">
-                                <span class="number-increment"> <i class="ti-plus"></i></span>
-                            </div>
-                            <form action="{{route('addToCart.store', $product->id)}}" method="POST">
-                                @csrf
+                        <form action="{{route('addToCart.store', $product->id)}}" method="POST">
+                            @csrf
+                            <div class="card_area d-flex justify-content-between align-items-center">
+                                <div class="product_count">
+                                    <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+                                    <input class="input-number" type="number" name="quantity" value="1" min="1">
+                                    <span class="number-increment"> <i class="ti-plus"></i></span>
+                                </div>
                                 <button type="submit" class="bg-transparent border-0">
                                         + add to cart
                                 </button>
+                            </div>
                             </form>
-                            <a href="#" class="like_us"> <i class="ti-heart"></i> </a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -73,32 +73,38 @@
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <img width="100"  src="{{asset('storage/images/product/'.$panier->image)}}" alt="" />
+                      <img width="100"  src="{{asset('storage/images/product/'.$panier->product->image)}}" alt="" />
                     </div>
                     <div class="media-body">
-                      <p>{{$panier->name}}</p>
+                      <p>{{$panier->product->name}}</p>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <h5>${{$panier->price}}</h5>
+                  <h5>${{$panier->product->price}}</h5>
                 </td>
                 <td>
                   <div class="product_count">
                     {{-- <span class="input-number-decrement"> <i class="ti-angle-down"></i></span> --}}
-                    @foreach ($panier->paniers as $product)
-                    <input class="input-number" type="text" value="{{$product->quantity}}" disabled>
-                    @endforeach
+                    <input class="input-number" type="text" value="{{$panier->quantity}}" disabled>
                     {{-- <span class="input-number-increment"> <i class="ti-angle-up"></i></span> --}}
                   </div>
                 </td>
                 <td>
-                  @foreach ($panier->paniers as $product)
-                    <h5>${{$product->product->price * $product->quantity}}</h5>
-                  @endforeach
+                  <h5>${{$panier->product->price * $panier->quantity}}</h5>
                 </td>
               </tr>
               @endforeach
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <h5>Subtotal</h5>
+                </td>
+                <td>
+                  <h5>$2160.00</h5>
+                </td>
+              </tr>
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">

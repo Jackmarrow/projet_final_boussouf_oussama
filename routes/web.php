@@ -15,6 +15,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SignInController;
+use App\Http\Controllers\Webmaster\ProductController as WebmasterProductController;
+use App\Http\Controllers\Webmaster\WebmasterDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,7 +63,7 @@ Route::post('/product/add_to_cart/{product}', [AddToCartController::class, 'stor
 
 
 // Admin Routes 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adminDashboard.index');
     Route::get('/admin/all_users', [AllUserController::class, 'index'])->name('allUsers.index');
     Route::get('/admin/products', [AllProductController::class, 'index'])->name('allProduct.index');
@@ -74,7 +76,14 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
-
+// Webmaster Routes
+Route::middleware(['auth', 'role:webmaster'])->group(function(){
+    Route::get('/webmaster/dashboard',[WebmasterDashboardController::class, 'index'])->name('webmasterDashboard.index');
+    Route::get('/webmaster/products', [WebmasterProductController::class, 'index'])->name('webmasterProduct.index');
+    Route::put('/webmaster/products/{product}', [WebmasterProductController::class, 'update'])->name('product.update');
+    Route::post('/webmaster/products/add_product', [WebmasterProductController::class, 'store'])->name('product.store');
+    Route::delete('/webmaster/products/{product}/delete', [WebmasterProductController::class, 'destroy'])->name('product.destroy');
+});
 
 
 Route::get('/dashboard', function () {

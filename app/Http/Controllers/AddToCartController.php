@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AddToCartController extends Controller
 {
-    public function store(Product $product){
+    public function store(Request $request, Product $product){
 
         //Check if User Authenticate
         if(Auth::user()){
@@ -19,23 +19,45 @@ class AddToCartController extends Controller
             $user = auth()->user();
 
             // Check if product exist
-            $exist = Panier::where('user_id', $user->id)->where('product_id',$product->id)->first();;
+            $exist = Panier::where('user_id', $user->id)->where('product_id',$product->id)->first();
             
-            if($exist){
-                $exist->increment('quantity');
-            } 
-            else{
-                Panier::create([
-                    'user_id'=>$user->id,
-                    'product_id'=>$product->id,
-                    'quantity'=>1
-                ]);
+
+            // Check if out of stock
+            if($product->stock == 0){
+                return back()->with('warning', 'This product is out of stock');
             }
 
-            $product->decrement('stock');
-
-            return back();
-        } 
+            else{
+                if($exist){
+                    // Check requisted quantity
+                    $request->quantity != null ? 
+                    $exist->increment('quantity',$request->quantity) :
+                    $exist->increment('quantity');
+                } 
+                // Product doesn't exist in panier
+                else{
+                    $request->quantity != null ?
+                    // User requisted quantity
+                    Panier::create([
+                        'user_id'=>$user->id,
+                        'product_id'=>$product->id,
+                        'quantity'=>$request->quantity
+                    ]) : 
+                    // User hasn't requisted quantity
+                    Panier::create([
+                        'user_id'=>$user->id,
+                        'product_id'=>$product->id,
+                        'quantity'=>1
+                    ]);
+                }
+                // Decrement stock
+                $request->quantity != null ? 
+                $product->decrement('stock', $request->quantity) :
+                $product->decrement('stock');
+    
+                return back()->with('success', 'Product has been added successfuly to the cart');
+            } 
+        }
         //IF NOT AUTHENTICATE 
         else{
             return back()->with('warning', 'You should be loged in to add an item to cart');

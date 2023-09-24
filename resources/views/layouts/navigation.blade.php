@@ -28,7 +28,7 @@
                     </x-nav-link>
                     @endrole
                     @role('webmaster')
-                    <x-nav-link :href="route('allProduct.index')" :active="request()->routeIs('allProduct.index')">
+                    <x-nav-link :href="route('webmasterProduct.index')" :active="request()->routeIs('webmasterProduct.index')">
                         {{ __('All Products') }}
                     </x-nav-link>
                     @endrole

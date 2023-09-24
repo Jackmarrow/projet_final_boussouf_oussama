@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Webmaster;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Panier;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class AllProductController extends Controller
+class ProductController extends Controller
 {
-    public function index()
-    {
-        $products = Product::all();
-        $categories = Category::all();
-        return view('admin.pages.product', compact('products', 'categories'));
-    }
+    public function index(){
+        // Get all products belong to this webmaster
+        $products = Product::where('user_id', auth()->user()->id)->get();
 
+        $categories = Category::all();
+
+        return view('webmaster.pages.product', compact('products','categories'));
+    }
 
     public function destroy(Product $product)
     {
@@ -55,7 +53,6 @@ class AllProductController extends Controller
 
         return back();
     }
-
 
     public function update(Request $request, Product $product)
     {

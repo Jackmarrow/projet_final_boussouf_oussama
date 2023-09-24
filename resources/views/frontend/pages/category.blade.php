@@ -124,6 +124,9 @@
                                     </select>
                                 </div>
                             </div>
+                            <!--================Flash Message Out of Stock =================-->
+                            @include('frontend.pages.flash-message')
+                            <!--============================================================-->
                         </div>
                     </div>
 
